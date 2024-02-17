@@ -24,7 +24,7 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.3.1</version>
                 <configuration>
-                    <outputDirectory>C:\Users\eikeh\AppData\Roaming\.feather\player-server\servers\389d3156-461b-4938-b304-5e15ca46802f\plugins</outputDirectory>
+                    <outputDirectory>/home/eike/pluginexport</outputDirectory>
                 </configuration>
             </plugin>
             <plugin>

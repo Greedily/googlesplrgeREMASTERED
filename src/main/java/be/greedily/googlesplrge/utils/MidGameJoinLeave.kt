@@ -1,5 +1,6 @@
 package be.greedily.googlesplrge.utils
 
+import be.greedily.googlesplrge.data.Constants
 import org.bukkit.Bukkit
 import org.bukkit.GameMode
 import org.bukkit.event.player.PlayerJoinEvent
@@ -10,7 +11,7 @@ object MidGameJoinLeave {
     fun joinListener(event: PlayerJoinEvent) {
         if(Config.isActive("")) {
             event.player.gameMode = GameMode.ADVENTURE
-            event.player.teleport(Bukkit.getWorld("world")!!.spawnLocation)
+            event.player.teleport(Bukkit.getWorld(Constants.WORLD.DEFAULT)!!.spawnLocation)
         }
         else {
 

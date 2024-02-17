@@ -7,12 +7,13 @@ import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 import org.bukkit.scheduler.BukkitRunnable
 import be.greedily.googlesplrge.Main
+import be.greedily.googlesplrge.data.Constants
 import be.greedily.googlesplrge.utils.worldmanager.utils.Essentials
 import java.io.File
 
 class MapCommand: CommandExecutor {
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>?): Boolean {
-        if(!sender.hasPermission("googlesplrge.world.switch")) return false
+        if(!sender.hasPermission(Constants.PERMISSION.WORLD.SWITCH)) return false
         if(sender !is Player) return false
 
         val player = sender.player!!

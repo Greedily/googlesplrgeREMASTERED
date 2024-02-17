@@ -23,9 +23,6 @@ import java.io.IOException
 
 class Main : JavaPlugin() {
 
-    val ACTIVE_PATH = "game.active"
-    val NO_GAME_ACTIVE = ""
-
     private var customConfigFile: File? = null
     private var customConfig: FileConfiguration? = null
 
@@ -51,12 +48,6 @@ class Main : JavaPlugin() {
         listenerRegistration()
 
         Essentials.loadWorld("void")
-
-        val runnable = object: BukkitRunnable() {
-            override fun run() {
-                TNTRunListeners.independentMovement()
-            }
-        }.runTaskTimer(this, 1, 1)
     }
 
     override fun onDisable() {
@@ -64,6 +55,14 @@ class Main : JavaPlugin() {
         saveConfig()
         saveDefaultConfig()
         saveResource("custom.yml", false)
+    }
+
+    private fun listenerRegistration() {
+        val pluginManager = Bukkit.getPluginManager()
+        pluginManager.registerEvents(MovementListener(), this)
+        pluginManager.registerEvents(PlayerDeathListener(), this)
+        pluginManager.registerEvents(JoinListener(), this)
+        pluginManager.registerEvents(LeaveListener(), this)
     }
 
     private fun createCustomConfig() {
@@ -84,13 +83,5 @@ class Main : JavaPlugin() {
             Instead of the above Try/Catch, you can also use
             YamlConfiguration.loadConfiguration(customConfigFile)
         */
-    }
-
-    private fun listenerRegistration() {
-        val pluginManager = Bukkit.getPluginManager()
-        pluginManager.registerEvents(MovementListener(), this)
-        pluginManager.registerEvents(PlayerDeathListener(), this)
-        pluginManager.registerEvents(JoinListener(), this)
-        pluginManager.registerEvents(LeaveListener(), this)
     }
 }

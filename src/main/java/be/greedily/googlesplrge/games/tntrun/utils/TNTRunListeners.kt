@@ -7,6 +7,7 @@ import org.bukkit.event.player.PlayerMoveEvent
 import org.bukkit.scheduler.BukkitRunnable
 import org.bukkit.util.NumberConversions
 import be.greedily.googlesplrge.Main
+import be.greedily.googlesplrge.data.Constants
 import be.greedily.googlesplrge.utils.AllPlayers
 import be.greedily.googlesplrge.utils.Config
 
@@ -14,7 +15,7 @@ import be.greedily.googlesplrge.utils.Config
 object TNTRunListeners {
 
     fun movement(event: PlayerMoveEvent) {
-        if(Config.isActive(TNTRun.GAME)) {
+        if(Config.isActive(Constants.TNTRUN.GAME)) {
             val player = event.player
             player.saturation = 20.0f
             player.foodLevel = 20
@@ -39,7 +40,7 @@ object TNTRunListeners {
     }
 
     fun death(event: PlayerDeathEvent) {
-        if(!Config.isActive(TNTRun.GAME)) return
+        if(!Config.isActive(Constants.TNTRUN.GAME)) return
         event.player.gameMode = GameMode.SPECTATOR
         val remainingPlayers = AllPlayers.getPlayersInGMnum(GameMode.ADVENTURE)
         if(remainingPlayers <= 1) {
@@ -48,7 +49,7 @@ object TNTRunListeners {
     }
 
     fun independentMovement() {
-        if(Config.isActive(TNTRun.GAME)) {
+        if(Config.isActive(Constants.TNTRUN.GAME)) {
             for (player in Bukkit.getOnlinePlayers()) {
                 if(player.location.y <= 11.1) {
                     val blockUnder = getBlockUnderPlayer(9, player.location)

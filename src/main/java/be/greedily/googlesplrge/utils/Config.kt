@@ -1,11 +1,12 @@
 package be.greedily.googlesplrge.utils
 
 import be.greedily.googlesplrge.Main
+import be.greedily.googlesplrge.data.Constants
 
 object Config {
 
     fun isActive(target: String): Boolean {
-        if(target == Main.instance!!.config.getString(Main.instance!!.ACTIVE_PATH)) {
+        if(target == Main.instance!!.config.getString(Constants.GAME_STATUS.ACTIVE_PATH)) {
             return true
         }
 
@@ -14,7 +15,7 @@ object Config {
 
     fun setActive(target: String) {
 
-        Main.instance!!.config.set(Main.instance!!.ACTIVE_PATH, target)
+        Main.instance!!.config.set(Constants.GAME_STATUS.ACTIVE_PATH, target)
 
         return
     }
