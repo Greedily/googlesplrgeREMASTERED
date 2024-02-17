@@ -1,0 +1,22 @@
+name: googlesplrge
+version: '${project.version}'
+main: be.greedily.googlesplrge.Main
+api-version: '1.20'
+authors: [Tortel, Greedily]
+
+commands:
+  copyworld:
+    description: Copies a world!
+    permission: googlesplrge.world.copy
+  deleteworld:
+    description: Deletes a world!
+    permission: googlesplrge.world.delete
+  map:
+    description: Switches between worlds
+    permission: googlesplrge.world.join
+  leave:
+    description: Leaves and unloads your current world
+    permission: googlesplrge.world.leave
+  game:
+    description: Games
+    permission: googlesplrge.games
