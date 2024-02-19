@@ -21,7 +21,7 @@ import java.io.File
 import java.io.IOException
 
 
-class Main : JavaPlugin() {
+class Main : JavaPlugin() { // tortel was here
 
     private var customConfigFile: File? = null
     private var customConfig: FileConfiguration? = null
