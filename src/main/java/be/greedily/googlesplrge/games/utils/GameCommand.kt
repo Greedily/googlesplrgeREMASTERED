@@ -6,6 +6,8 @@ import be.greedily.googlesplrge.utils.Config
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
+import org.bukkit.command.TabCompleter
+import org.bukkit.command.TabExecutor
 import org.bukkit.entity.Player
 
 class GameCommand: CommandExecutor { //TabCompleter
@@ -36,4 +38,10 @@ class GameCommand: CommandExecutor { //TabCompleter
 
         return false
     }
+
+    /*
+    override fun onTabComplete(sender: CommandSender, command: Command, label: String, args: Array<out String>?): MutableList<String>? {
+        val list = MutableList<String>()
+    }*/
+
 }

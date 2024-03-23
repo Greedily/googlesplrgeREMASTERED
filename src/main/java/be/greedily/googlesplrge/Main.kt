@@ -44,6 +44,7 @@ class Main : JavaPlugin() { // tortel was here
         getCommand("leave")?.setExecutor(LeaveCommand())
 
         getCommand("game")?.setExecutor(GameCommand())
+        //getCommand("game")?.tabCompleter = GameCommand()
 
         listenerRegistration()
 
