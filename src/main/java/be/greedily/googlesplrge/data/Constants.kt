@@ -2,15 +2,13 @@ package be.greedily.googlesplrge.data
 
 object Constants {
 
-    object TNTRUN {
-        const val GAME = "tnt"
-        const val WORLDNAME = "tntrun"
-        const val WORLDNAME_TEMP = WORLDNAME + "_temp"
-    }
+    const val GLOBALCHECKPOINTDIST = 3
 
     object ACERACE {
         const val GAME = "acerace"
         const val WORLDNAME = "acerace"
+        const val CHECKPOINTS = "acerace"
+
     }
 
     object WORLD {

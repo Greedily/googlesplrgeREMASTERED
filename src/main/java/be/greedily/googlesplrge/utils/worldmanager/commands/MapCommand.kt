@@ -31,6 +31,8 @@ class MapCommand: CommandExecutor {
             }
         }.runTaskLater(Main.instance!!, 10)
 
+        sender.sendMessage("Tped world succesfully!!! yey")
+
         return false
     }
 

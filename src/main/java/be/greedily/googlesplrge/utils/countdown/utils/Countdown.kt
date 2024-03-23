@@ -26,7 +26,7 @@ object Countdown {
                 if(STOP_TIME >= currentTime) {
                     AllPlayers.setInvisible(false)
                     AllPlayers.broadcastTitle("§aStart!!!", "")
-
+                    move = true
                     func()
 
                     this.cancel()

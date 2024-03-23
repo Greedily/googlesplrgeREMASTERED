@@ -1,12 +1,11 @@
 package be.greedily.googlesplrge
 
+import be.greedily.googlesplrge.data.CheckPointsConfig
 import org.bukkit.Bukkit
 import org.bukkit.configuration.InvalidConfigurationException
 import org.bukkit.configuration.file.FileConfiguration
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.plugin.java.JavaPlugin
-import org.bukkit.scheduler.BukkitRunnable
-import be.greedily.googlesplrge.games.tntrun.utils.TNTRunListeners
 import be.greedily.googlesplrge.games.utils.GameCommand
 import be.greedily.googlesplrge.listeners.JoinListener
 import be.greedily.googlesplrge.listeners.LeaveListener
@@ -33,7 +32,8 @@ class Main : JavaPlugin() { // tortel was here
 
     override fun onEnable() {//e
         // Plugin startup logic
-        createCustomConfig();
+        saveConfig()
+        CheckPointsConfig.load()
 
         instance = this
 
@@ -54,7 +54,8 @@ class Main : JavaPlugin() { // tortel was here
         // Plugin shutdown logic
         saveConfig()
         saveDefaultConfig()
-        saveResource("custom.yml", false)
+
+        CheckPointsConfig.save()
     }
 
     private fun listenerRegistration() {
@@ -63,25 +64,5 @@ class Main : JavaPlugin() { // tortel was here
         pluginManager.registerEvents(PlayerDeathListener(), this)
         pluginManager.registerEvents(JoinListener(), this)
         pluginManager.registerEvents(LeaveListener(), this)
-    }
-
-    private fun createCustomConfig() {
-        customConfigFile = File(dataFolder, "custom.yml")
-        if (!customConfigFile?.exists()!!) {
-            customConfigFile!!.parentFile.mkdirs()
-            saveResource("custom.yml", false)
-        }
-        customConfig = YamlConfiguration()
-        try {
-            (customConfig as YamlConfiguration).load(customConfigFile!!)
-        } catch (e: IOException) {
-            e.printStackTrace()
-        } catch (e: InvalidConfigurationException) {
-            e.printStackTrace()
-        }
-        /* User Edit:
-            Instead of the above Try/Catch, you can also use
-            YamlConfiguration.loadConfiguration(customConfigFile)
-        */
     }
 }

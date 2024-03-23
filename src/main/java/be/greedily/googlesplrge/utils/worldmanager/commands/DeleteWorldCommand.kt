@@ -16,6 +16,8 @@ class DeleteWorldCommand: CommandExecutor {
         Essentials.deleteWorld(File(Bukkit.getWorldContainer(), args[0]))
         Essentials.unloadWorld(Bukkit.getWorld(args[0]))
 
+        sender.sendMessage("Deleted world succesfully!!! yey")
+
         return false
     }
 }

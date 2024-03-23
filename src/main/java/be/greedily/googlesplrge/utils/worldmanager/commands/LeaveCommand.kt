@@ -22,6 +22,8 @@ class LeaveCommand: CommandExecutor {
         if(worldName == Constants.WORLD.DEFAULT || worldName == Constants.WORLD.DEFAULT_END || worldName == Constants.WORLD.DEFAULT_NETHER || worldName == Constants.WORLD.VOID) return false
         Essentials.unloadWorld(world)
 
+        sender.sendMessage("Left ${worldName} succesfully!!! yey")
+
         return false
     }
 }

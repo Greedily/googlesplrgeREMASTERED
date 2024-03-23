@@ -17,9 +17,14 @@ class CopyWorldCommand: CommandExecutor {
         if(args == null) return false
         if(args.size < 2) return false
         if(Bukkit.getWorld(args[0]) == null) return false
-        Essentials.copyWorld(Bukkit.getWorld(args[0])!!.worldFolder, File(Bukkit.getWorldContainer(), args[1]))
-        Essentials.loadWorld(args[1])
-        return false
+        val world = Bukkit.getWorld(args[0])
+        val copiedworldname = args[1]
+
+        Essentials.copyWorld(world!!.worldFolder, File(Bukkit.getWorldContainer(), copiedworldname))
+        Essentials.loadWorld(copiedworldname)
+
+        sender.sendMessage("Copied ${copiedworldname} succesfully!!! yey")
+        return false // save world command, saves to schematics folder
     }
 
 

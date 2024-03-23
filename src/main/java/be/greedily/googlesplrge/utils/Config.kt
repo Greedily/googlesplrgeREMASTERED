@@ -16,7 +16,7 @@ object Config {
     fun setActive(target: String) {
 
         Main.instance!!.config.set(Constants.GAME_STATUS.ACTIVE_PATH, target)
-
+        Main.instance!!.saveConfig()
         return
     }
 
