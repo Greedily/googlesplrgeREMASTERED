@@ -12,6 +12,7 @@ import java.io.File
 
 
 class CopyWorldCommand: CommandExecutor {
+
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>?): Boolean {
         if(!sender.hasPermission(Constants.PERMISSION.WORLD.COPY)) return false
         if(args == null) return false
